@@ -13,7 +13,7 @@ What colour is it when you browse your website? Bring more colour into your webs
 
 == Description ==
 
-What colour is it when you browse your website? Bring more colour into your website with this ever-changing background. It changes background color of your website with the passage of time (time as a hexadecimal value).
+What colour is it when you browse your website? Bring more colour into your website with this ever-changing background. It changes background color of your website with the passage of time (time as a hexadecimal value). Remember that it doesn't always look good with every theme, so test it with your theme first!
 
 == Installation ==
 
@@ -21,16 +21,14 @@ What colour is it when you browse your website? Bring more colour into your webs
 2. Unzip (steps 1 and 2 can also be performed automatically)
 3. Activate the plugin
 4. Configure and place the widget on your sidebar
-5. Now wait some time until widget gather data to show charts
 
 Or just add .zip file as a new plugin in your Wordpress administration panel.
 
 == Screenshots ==
 
 1. Post Popularity Chart Widget Lite.
-2. Post Popularity Chart Widget Lite visible on right block.
 2. Options menu.
 
 == Changelog ==
-* 0.5
+* 1.0.0
 Initial Release
