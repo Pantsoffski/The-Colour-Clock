@@ -103,7 +103,7 @@ function display_ct() {
 	
 	var hex = "#" + redhex + greenhex + bluehex;
 	
-	$("body").css("background-color", hex);
+	jQuery("body").css("background-color", hex);
 
 <?php
 
@@ -134,10 +134,6 @@ add_action('widgets_init', create_function('', 'return register_widget("hex_back
 
 add_action('wp_enqueue_scripts', function () {
 	wp_enqueue_style('hex_background_clock', plugins_url('style-hex-background-clock.css', __FILE__)); //css file
-	//jquery include
-	wp_deregister_script('jquery');
-	wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js');
-	wp_enqueue_script('jquery');
 });
 
 ?>
