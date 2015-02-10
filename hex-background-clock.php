@@ -4,7 +4,7 @@ Plugin Name: The Colour Clock
 Plugin URI: http://smartfan.pl/
 Description: What colour is it when you browse your website? Bring more colour into your website with this ever-changing background. It changes background color of your website with the passage of time (time as a hexadecimal value).
 Author: Piotr Pesta
-Version: 0.5
+Version: 1.0.0
 Author URI: http://smartfan.pl/
 License: GPL12
 */
@@ -12,7 +12,7 @@ License: GPL12
 register_uninstall_hook(__FILE__, 'hex_background_clock_uninstall'); //akcja podczas deaktywacji pluginu
 
 // podczas odinstalowania - usuwanie opcji
-function popular_posts_statistics_uninstall() {
+function hex_background_clock_uninstall() {
 	delete_option('widget_hex_background_clock');
 }
 
@@ -38,7 +38,7 @@ return $instance;
 function form($instance) {
 
 // nadawanie i łączenie defaultowych wartości
-	$defaults = array('hidewidget' => '', 'title' => '');
+	$defaults = array('hidewidget' => '', 'title' => 'The Colour Clock');
 	$instance = wp_parse_args( (array) $instance, $defaults );
 ?>
 
@@ -75,24 +75,42 @@ echo $before_title . $title . $after_title;
 <script type="text/javascript">
 
 function display_c(){
-var refresh=1000; // Refresh rate in milli seconds
-mytime=setTimeout('display_ct()',refresh)
+var refresh=250; // Refresh rate in milli seconds
+mytime=setTimeout('display_ct()',refresh);
 }
 
 function display_ct() {
-var strcount
-var x = new Date();
-var s = ("0" + x.getSeconds()).slice(-2);
-var m = ("0" + x.getMinutes()).slice(-2);
-var h = ("0" + x.getHours()).slice(-2);
-$("body").css("background-color", '#'+h+m+s);
+	var strcount;
+	var x = new Date();
+	var ms = x.getMilliseconds();
+	var s = x.getSeconds();
+	var m = x.getMinutes();
+	var h = x.getHours();
+	var rounded = s + (ms / 999);
+	
+	red = (Math.round(255 * ((h) / 23)));
+	green = (Math.round(255 * ((m) / 59)));
+	blue = (Math.round(255 * ((rounded) / 60)));
+
+	redhex = hexifyWithZeroLead(red);
+	greenhex = hexifyWithZeroLead(green);
+	bluehex = hexifyWithZeroLead(blue);
+	
+	function hexifyWithZeroLead(hexval){
+		var rtn = hexval.toString(16);
+		return (rtn.length == 1 ? "0" : "") + rtn;
+	}
+	
+	var hex = "#" + redhex + greenhex + bluehex;
+	
+	$("body").css("background-color", hex);
 
 <?php
 
-if ($hidewidget == ''){
-	echo "document.getElementById('pp-colour-clock').innerHTML = h+' : '+m+' : '+s;";
-}else {
-	echo "document.getElementById('pp-colour-clock');";
+	if ($hidewidget == ''){
+		echo "document.getElementById('pp-colour-clock').innerHTML = h+' : '+m+' : '+s+'<br>'+hex;";
+	}else {
+		echo "document.getElementById('pp-colour-clock');";
 }
 
 ?>
@@ -103,7 +121,7 @@ tt=display_c();
 </script>
 
 <body onload=display_ct();>
-<span id='ct'></span>
+<span id='pp-colour-clock'></span>
 
 <?php
 
