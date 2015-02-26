@@ -1,5 +1,5 @@
 === The Colour Clock ===
-Plugin Name: Post Popularity Chart Widget Lite
+Plugin Name: The Colour Clock
 Plugin URI: http://smartfan.pl/
 Tags: colour, clock, background, wallpaper, hex, hexadecimal, background changer
 Author: Piotr Pesta
@@ -9,11 +9,11 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-What colour is it when you browse your website? Bring more colour into your website with this ever-changing background. It changes background color of your website with the passage of time (time as a hexadecimal value).
+What colour is it when you browse your website? Bring more colour into your website with this ever-changing background.
 
 == Description ==
 
-What colour is it when you browse your website? Bring more colour into your website with this ever-changing background. It changes background color of your website with the passage of time (time as a hexadecimal value). Remember that it doesn't always look good with every theme, so test it with your theme first!
+What colour is it when you browse your website? Bring more colour into your website with this ever-changing background. It changes background color of your website with the passage of time (time as a hexadecimal value). Remember that it doesn't always look good with every theme, so test it with your theme first! To change clock syle, just edit style-hex-background-clock.css file.
 
 == Installation ==
 
